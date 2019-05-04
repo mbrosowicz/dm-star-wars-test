@@ -1,8 +1,8 @@
 # Delivery Much Star Wars Test
 
-## Description
+## Description and considerations
 
-This is a Vue application which contains a lot of info about my favorite movie series, Star Wars. The app was completely made by me for an job opportunity.
+This is a Vue app that contains a lot of information about my favorite movie series, Star Wars. The app was completely made by me for a job opportunity.
 
 You may notice some extra modules that weren't fully used, but I chose to leave them there in the hope of further expanding this project to a wiki or something like that.
 
