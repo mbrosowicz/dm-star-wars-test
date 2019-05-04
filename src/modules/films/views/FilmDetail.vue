@@ -4,7 +4,7 @@
       <loading-page />
     </div>
     <b-card-group v-else deck class="film-deck">
-      <film-detail-card :film="film" />
+      <film-detail-card :film="film" :film-poster="filmPoster" />
     </b-card-group>
   </section>
 </template>
@@ -20,6 +20,10 @@ export default {
   props: {
     filmId: {
       type: [Number, String],
+      required: true,
+    },
+    filmPoster: {
+      type: String,
       required: true,
     },
   },

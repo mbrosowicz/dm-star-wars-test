@@ -1,17 +1,15 @@
 <template>
-  <b-card
-    :img-src="filmPoster"
-    img-alt="Star Wars Poster"
-    :title="film.title"
-    :sub-title="releaseDate"
-    class="film-card m-4"
-  >
-    <b-card-text class="film-director-text">{{ film.director }}</b-card-text>
-
-    <b-button size="lg" variant="dark" @click="$router.push({ name: 'film-detail', params: { filmId: film.id } })"
-    >Details</b-button
+  <router-link class="card-link" :to="{ name: 'film-detail', params: { filmId: film.id, filmPoster } }">
+    <b-card
+      :img-src="filmPoster"
+      img-alt="Star Wars Poster"
+      :title="film.title"
+      :sub-title="releaseDate"
+      class="film-card m-4"
     >
-  </b-card>
+      <b-card-text class="film-director-text">{{ film.director }}</b-card-text>
+    </b-card>
+  </router-link>
 </template>
 
 <script>
@@ -51,61 +49,71 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.film-card {
-  margin: 0 auto;
-  transition: transform 0.5s;
+.card-link {
+  display: contents;
+  text-decoration: none;
+  color: #535359;
 
-  &:hover {
-    transform: scale(1.1);
-  }
+  .film-card {
+    cursor: pointer;
+    margin: 0 auto;
+    transition: transform 0.5s;
 
-  img {
-    display: block;
-    height: auto;
-    width: 100%;
-  }
-
-  @media only screen and (min-width: 576px) {
-    flex: 1 0 25%;
-    max-width: 27%;
+    &:hover {
+      transform: scale(1.1);
+    }
 
     img {
+      display: block;
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @media only screen and (min-width: 576px) {
       flex: 1 0 25%;
-      max-height: 47%;
-    }
-  }
+      max-width: 28%;
 
-  @media only screen and (min-width: 900px) {
-    img {
-      max-height: 51%;
-    }
-  }
-
-  @media only screen and (min-width: 1023px) {
-    img {
-      max-height: 57%;
-    }
-  }
-
-  @media only screen and (min-width: 1279px) {
-    img {
-      max-height: 61%;
-    }
-  }
-
-  @media only screen and (min-width: 1400px) {
-    img {
-      max-height: 62%;
+      img {
+        flex: 1 0 25%;
+        max-height: 52%;
+      }
     }
 
-    .film-director-text {
-      margin-bottom: 3rem;
+    @media only screen and (min-width: 879px) {
+      img {
+        max-height: 58%;
+      }
     }
-  }
 
-  @media only screen and (min-width: 1550px) {
-    img {
-      max-height: 68%;
+    @media only screen and (min-width: 991px) {
+      img {
+        max-height: 64%;
+      }
+    }
+
+    @media only screen and (min-width: 1099px) {
+      img {
+        max-height: 72%;
+      }
+    }
+
+    @media only screen and (min-width: 1400px) {
+      img {
+        max-height: 74%;
+      }
+    }
+
+    @media only screen and (min-width: 1790px) {
+      img {
+        max-height: 78%;
+      }
+    }
+
+    @media only screen and (min-width: 1990px) {
+      img {
+        max-height: 82%;
+      }
     }
   }
 }

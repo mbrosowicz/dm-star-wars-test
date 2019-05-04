@@ -22,13 +22,12 @@ export default {
 <style lang="stylus">
 #app {
   font-family: 'D-DIN', 'DIN', 'Helvetica', 'Arial', sans-serif;
-  color: #aaa;
+  color: #535359;
   font-weight: 600;
   -webkit-text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {

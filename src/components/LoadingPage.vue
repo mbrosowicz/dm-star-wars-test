@@ -13,6 +13,6 @@ div {
   align-items: center;
   height: 40vh;
   width: 100%;
-  color: #FFFFFF;
+  color: #AFAFAF;
 }
 </style>

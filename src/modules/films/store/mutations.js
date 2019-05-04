@@ -11,6 +11,13 @@ export default {
     Vue.set(state, 'detail', film);
   },
 
+  setLazyDetail(state, { filmInfo }) {
+    state.detail.film = {
+      ...state.detail.film,
+      ...filmInfo,
+    };
+  },
+
   resetFilmDetail(state) {
     const film = {
       characters: [],

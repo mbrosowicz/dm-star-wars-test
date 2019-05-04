@@ -36,45 +36,6 @@ export default {
       const film = await filmsApi.getFilmResources({ id: filmId });
 
       if (!isEmpty(film)) {
-        const characterPromises = [];
-        film.characters.forEach(filmCharacterUrl => {
-          characterPromises.push(axios.get(filmCharacterUrl));
-        });
-
-        const planetsPromises = [];
-        film.planets.forEach(filmPlanetsUrl => {
-          planetsPromises.push(axios.get(filmPlanetsUrl));
-        });
-
-        const speciesPromises = [];
-        film.species.forEach(filmSpeciesUrl => {
-          speciesPromises.push(axios.get(filmSpeciesUrl));
-        });
-
-        const starshipsPromises = [];
-        film.starships.forEach(filmStarshipUrl => {
-          starshipsPromises.push(axios.get(filmStarshipUrl));
-        });
-
-        const vehiclesPromises = [];
-        film.vehicles.forEach(filmVehicleUrl => {
-          vehiclesPromises.push(axios.get(filmVehicleUrl));
-        });
-
-        const characters = await Promise.all(characterPromises);
-        const planets = await Promise.all(planetsPromises);
-        const species = await Promise.all(speciesPromises);
-        const starships = await Promise.all(starshipsPromises);
-        const vehicles = await Promise.all(vehiclesPromises);
-
-        if (characters && planets && species && starships && vehicles) {
-          film.characters = characters;
-          film.planets = planets;
-          film.species = species;
-          film.starships = starships;
-          film.vehicles = vehicles;
-        }
-
         await dispatch('keysToCamel', { items: film });
 
         commit('setFilmDetail', { film });
@@ -99,6 +60,24 @@ export default {
       return items.forEach(item => {
         dispatch('keysToCamel', { items: item });
       });
+    }
+  },
+
+  async loadLazyInfo({ commit, dispatch }, { film, property }) {
+    try {
+      dispatch('wait/start', `fetching-lazy-info-${property}`, { root: true });
+      const promises = [];
+      film[property].forEach(propertyUrl => {
+        promises.push(axios.get(propertyUrl));
+      });
+
+      const filmInfo = {};
+      filmInfo[property] = await Promise.all(promises);
+      commit('setLazyDetail', { filmInfo });
+    } catch (err) {
+      throw err;
+    } finally {
+      dispatch('wait/end', `fetching-lazy-info-${property}`, { root: true });
     }
   },
 
