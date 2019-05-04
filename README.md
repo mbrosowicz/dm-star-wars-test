@@ -24,6 +24,14 @@ This command compiles the project to a deployable web application.
 npm run build
 ```
 
+### Runs server
+
+This command runs a server to serve the app to the local machine if it is already compiled.
+
+```
+npm run start
+```
+
 ### Run your tests
 
 This command is used to test the project.
