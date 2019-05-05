@@ -75,7 +75,6 @@ export default {
       max-width: 28%;
 
       img {
-        flex: 1 0 25%;
         max-height: 52%;
       }
     }

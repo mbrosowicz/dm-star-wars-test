@@ -6,6 +6,10 @@ This is a Vue app that contains a lot of information about my favorite movie ser
 
 You may notice some extra modules that weren't fully used, but I chose to leave them there in the hope of further expanding this project to a wiki or something like that.
 
+## Prerequisites
+
+All you need to have installed in your machine prior to installing the project dependencies are NodeJS and NPM.
+
 ## Project setup
 
 Here all you need to do is install the project dependencies, then you're good to go!
